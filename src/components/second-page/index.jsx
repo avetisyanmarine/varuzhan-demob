@@ -1,45 +1,238 @@
-import { SecondPagePart, SecondPagePartContext } from "./styled"
-import { Container } from "../../GlobalStyle"
+import {
+  GridDiv,
+  SecondPagePart,
+  SecondPagePartContext,
+  RSVPSection,
+  RSVPButtons,
+  RSVPButton,
+  SendButton,
+  RSVPMessage,
+  RSVPLabel,
+} from "./styled";
+import { Container, Flexible } from "../../GlobalStyle";
+import { useEffect, useState } from "react";
+import { ThirdPage } from "../third-page";
+import WhiteHeart from "../../assets/image/white-heart.png";
+import image1 from "/site-images/image1.jpg";
+import image3 from "/site-images/image3.jpg";
 
 export const SecondPage = () => {
-    const handleClick = (e) => {
+  const [timeLeft, setTimeLeft] = useState({
+    days: 0,
+    hours: 0,
+    minutes: 0,
+    seconds: 0,
+  });
+  const [selectedResponse, setSelectedResponse] = useState(null);
+  const [guestName, setGuestName] = useState("");
+  const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+
+  const date = new Date(2026, 4, 22, 0, 0, 0);
+
+  const handleClick = (e) => {
     e.preventDefault();
     const aboutSection = document.getElementById("about");
     if (aboutSection) {
-      aboutSection.scrollIntoView({ behavior: "smooth" });
+      const elementPosition = aboutSection.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - 60;
+      window.scrollTo({ top: offsetPosition, behavior: "smooth" });
     }
   };
-    return (
-        <SecondPagePart className="relative">
-            <img loading="lazy" src="/entire-lemon.png" alt="lemon" className=" absolute h-[87px] right-4 top-100" />
-            <Container>
-                <SecondPagePartContext>
-                    <a onClick={handleClick} href="#about" className="animate-[moveUpDown_1s_ease-in-out_infinite]">
-                        <svg width="49" height="31" viewBox="0 0 49 31" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M47.3118 1.38342C48.7273 3.05932 48.7273 5.7768 47.3118 7.4527L29.5775 28.428C26.7457 31.7772 22.1572 31.7758 19.3268 28.425L1.59932 7.43725C0.183689 5.76135 0.183689 3.04387 1.59932 1.36797C3.015 -0.308352 5.3102 -0.308352 6.72587 1.36797L21.8987 19.3312C23.3146 21.0071 25.6096 21.0071 27.0252 19.3312L42.1853 1.38342C43.6009 -0.292473 45.8962 -0.292473 47.3118 1.38342Z" fill="#F2DA07" />
-                        </svg>
-                    </a>
-                    <img loading="lazy" src="/slice-lemon.png" alt="lemon" className="absolute left-1.5 top-12 w-[72px]" />
-                    <div id="about" className="text-center">
-                        <h2 className="text-[var(--dark-color)] text-[64px] font-['Playfair_Display',serif]" data-aos="zoom-in">Karine's</h2>
-                        <h3 className="text-[var(--color)] text-[96px] font-[family-home]" data-aos="zoom-in">11th</h3>
-                        <h3 className="text-[var(--black)] text-[64px] leading-17 font-[family-home]" data-aos="zoom-in">Birthday <br /> Party</h3>
-                    </div>
-                    <h5 className="text-[24px]">
-                        Սիրելի ընկերներ և <br />բարեկամներ, սիրով հրավիրում <br /> եմ ձեզ միասին կիսելու իմ <br />ծննդյան ուրախությունը։Ձեր <br />ներկայությամբ օրը կլինի ավելի <br /> գեղեցիկ ու հիշարժան։
-                    </h5>
-                    <img loading="lazy" src="/cake.png" />
-                    <img src="/site-images/image1.jpg" className="w-full rounded-[30px]" alt="" />
-                    <h3 className="text-[36px]" style={{ marginTop: "20px" }} data-aos="zoom-in">Միացեք Մեզ</h3>
-                    <h2 className="text-[64px] text-[var(--dark-color)]" data-aos="zoom-in">09</h2>
-                    <h3 className="text-[48px] text-[var(--color)]" data-aos="zoom-in">Սեպտեմբեր</h3>
-                    <h2 className="text-[64px] text-[var(--dark-color)]" data-aos="zoom-in">2025</h2>
-                    <img loading="lazy" src="half-lemon.png" alt="lemon" className="absolute w-[72px] left-9 bottom-[39%]" />
-                    <h3 className="text-[36px]" data-aos="zoom-in">Դուք հրավիրված եք</h3>
-                    <h2 className="text-[64px] text-[var(--color)]" data-aos="zoom-in">14։00</h2>
-                    <img src="/slice-lemon.png" alt="lemon" style={{ marginTop: "10px" }} className="w-[72px]" />
-                </SecondPagePartContext>
-            </Container>
-        </SecondPagePart>
-    )
-}
+
+  const formatNumber = (num) => String(num).padStart(2, "0");
+
+  const calculateTimeLeft = () => {
+    const now = new Date();
+    const diff = date - now;
+    if (diff <= 0) return { days: 0, hours: 0, minutes: 0, seconds: 0 };
+    return {
+      days: Math.floor(diff / (1000 * 60 * 60 * 24)),
+      hours: Math.floor((diff / (1000 * 60 * 60)) % 24),
+      minutes: Math.floor((diff / (1000 * 60)) % 60),
+      seconds: Math.floor((diff / 1000) % 60),
+    };
+  };
+
+  useEffect(() => {
+    setTimeLeft(calculateTimeLeft());
+    const interval = setInterval(() => {
+      setTimeLeft(calculateTimeLeft());
+    }, 1000);
+    return () => clearInterval(interval);
+  }, []);
+
+  const handleSelect = (value) => {
+    setSelectedResponse(value);
+    setSubmitted(false);
+  };
+
+  const handleSend = async () => {
+    if (!selectedResponse || !guestName.trim()) {
+      alert("Խնդրում ենք լրացնել Ձեր անունը և ընտրել տարբերակը:");
+      return;
+    }
+
+    setLoading(true);
+    const SCRIPT_URL =
+      "https://script.google.com/macros/s/AKfycbyo-F08hKFG4I3ZA6iKwyGAI7s66dB2NZB392Ccv4RFc44PI52pZ1QLYSLM7IaVvkX8/exec"; // Փոխարինիր սա քո իրական URL-ով
+
+    try {
+      await fetch(SCRIPT_URL, {
+        method: "POST",
+        mode: "no-cors",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: guestName,
+          response: selectedResponse,
+        }),
+      });
+
+      setSubmitted(true);
+      setGuestName(""); // Մաքրել անունը ուղարկելուց հետո
+    } catch (error) {
+      console.error("Error!", error);
+      alert("Սխալ տեղի ունեցավ: Փորձեք նորից:");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return (
+    <SecondPagePart className="relative">
+      <Container>
+        <a
+          onClick={handleClick}
+          className="cursor-pointer animate-[moveUpDown_1s_ease-in-out_infinite]"
+        >
+          <svg width="49" height="31" viewBox="0 0 49 31" fill="none">
+            <path
+              d="M47.3118 1.38342C48.7273 3.05932 48.7273 5.7768 47.3118 7.4527L29.5775 28.428C26.7457 31.7772 22.1572 31.7758 19.3268 28.425L1.59932 7.43725C0.183689 5.76135 0.183689 3.04387 1.59932 1.36797C3.015 -0.308352 5.3102 -0.308352 6.72587 1.36797L21.8987 19.3312C23.3146 21.0071 25.6096 21.0071 27.0252 19.3312L42.1853 1.38342C43.6009 -0.292473 45.8962 -0.292473 47.3118 1.38342Z"
+              fill="#000000"
+            />
+          </svg>
+        </a>
+
+        <SecondPagePartContext>
+          <div id="about" className="text-center">
+            <h3
+              className="text-[#7F4E15] text-[96px] font-[englishFont]"
+              data-aos="zoom-in"
+            >
+              35
+            </h3>
+            <div>
+              <h2 data-aos="zoom-in">Ծննդյան Հրավեր</h2>
+              <GridDiv data-aos="fade-in">
+                <Flexible>
+                  <h2>{formatNumber(timeLeft.days)}</h2>
+                  <p>Օր</p>
+                </Flexible>
+                <Flexible>
+                  <h2>{formatNumber(timeLeft.hours)}</h2>
+                  <p>Ժամ</p>
+                </Flexible>
+                <Flexible>
+                  <h2>{formatNumber(timeLeft.minutes)}</h2>
+                  <p>Րոպե</p>
+                </Flexible>
+                <Flexible className="uniqueBorder">
+                  <h2>{formatNumber(timeLeft.seconds)}</h2>
+                  <p>Վայրկյան</p>
+                </Flexible>
+              </GridDiv>
+            </div>
+          </div>
+          <img loading="lazy" src="/cake.png" alt="Cake" />
+          <h2 className="text-[40px] w-full" data-aos="zoom-in">
+            Սիրելի ընկերներ
+          </h2>
+          <h5 className="text-[24px] font-[500]" data-aos="zoom-in">
+            Սիրով հրավիրում եմ ձեզ միասին կիսելու իմ ծննդյան ուրախությունը։{" "}
+            <br /> Ձեր ներկայությամբ օրը կլինի ավելի գեղեցիկ ու հիշարժան։
+          </h5>
+          <hr className="border-[#7F4E15] w-1/3 my-4" />
+          <h2 data-aos="zoom-in" className="w-full">
+            Պահպանիր Օրը
+          </h2>
+          <ThirdPage />
+          <img src={image3} alt="" className="rounded-[180px]" />
+        </SecondPagePartContext>
+
+        <img
+          src={WhiteHeart}
+          className="w-[140px]"
+          style={{ margin: "auto" }}
+          alt="White Heart"
+        />
+
+        <RSVPSection>
+          <h2 data-aos="fade-in" className="w-full">
+            RSVP
+          </h2>
+          <RSVPLabel>Կմիանա՞ք տոնին, թե ոչ։</RSVPLabel>
+
+          {/* Անվան դաշտ */}
+          <input
+            type="text"
+            placeholder="Ձեր Անունը"
+            value={guestName}
+            onChange={(e) => setGuestName(e.target.value)}
+            style={{
+              padding: "10px",
+              margin: "15px 0",
+              border: "none",
+              borderBottom: "2px solid #7F4E15",
+              background: "transparent",
+              textAlign: "center",
+              fontSize: "25px",
+              outline: "none",
+              width: "100%",
+              maxWidth: "300px",
+            }}
+          />
+
+          <RSVPButtons>
+            <RSVPButton
+              type="button"
+              $active={selectedResponse === "yes"}
+              onClick={() => handleSelect("yes")}
+            >
+              Այո
+            </RSVPButton>
+            <RSVPButton
+              type="button"
+              $active={selectedResponse === "no"}
+              onClick={() => handleSelect("no")}
+            >
+              Ոչ
+            </RSVPButton>
+          </RSVPButtons>
+
+          <SendButton
+            type="button"
+            disabled={!selectedResponse || !guestName || loading}
+            onClick={handleSend}
+          >
+            {loading ? "Ուղարկվում է..." : "Ուղարկել"}
+          </SendButton>
+
+          {submitted && (
+            <RSVPMessage>
+              {selectedResponse === "yes"
+                ? "Ձեր «Այո» պատասխանը հաջողությամբ գրանցվեց։ Սպասում ենք Ձեզ:"
+                : "Ձեր «Ոչ» պատասխանը հաջողությամբ գրանցվեց։"}
+            </RSVPMessage>
+          )}
+        </RSVPSection>
+
+        <img
+          src={image1}
+          alt="B-day"
+          className="rounded-[180px] my-10"
+          data-aos="fade-in"
+        />
+      </Container>
+    </SecondPagePart>
+  );
+};

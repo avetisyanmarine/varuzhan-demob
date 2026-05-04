@@ -1,22 +1,25 @@
 import styled from "styled-components";
 
 const LastFooterPagePart = styled.div`
-    background: var(--color);
-    color: var(--dark-color);
+    color: #7F4E15;;
+    text-align: center;
 `
 const LastFooterPagePartContext = styled.div`
-    font-size: 18px;
+display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+gap: 30px;
+    font-size: 30px;
     > p {
-        margin-top: 48px;
+        margin-top: 8px;
     }
-    > div {
+    div {
         display: flex;
+        justify-content: center;
         align-items: center;
-        gap: 20px;
-        .unique {
-            padding-left: 20px;
-        }
-        > div {
+        gap: 10px;
+        div {
             img {
                 padding: 11px;
                 border-right: 2px solid aliceblue;
@@ -28,6 +31,7 @@ const LastFooterPagePartContext = styled.div`
         }
    }
      a {
+        font-family: ArmenianDecorativeU-Italic;
         text-decoration: none;
         cursor: pointer;
         transition: 0.2s;

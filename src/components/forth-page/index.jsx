@@ -13,7 +13,7 @@ export const ForthPage = () => {
           <h3 data-aos="fade-in" className="text-[32px] text-[var(--dark-color)]">
             FOM <br /> Ռեստորանային Համալիր
           </h3>
-          <h1 data-aos="fade-in">17:00</h1>
+          <h1 data-aos="fade-in">19:00</h1>
           <div className="line h-[110px] bg-[var(--black)]"></div>
             <img src={Restoran} alt="Restoran" className="rounded-[170px]" />
           <a href="https://maps.app.goo.gl/cF9PNaTeTbhPmAox5" className="text-[var(--dark-color)] text-[30px] underline">

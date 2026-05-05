@@ -114,7 +114,7 @@ export const SecondPage = () => {
           <svg width="49" height="31" viewBox="0 0 49 31" fill="none">
             <path
               d="M47.3118 1.38342C48.7273 3.05932 48.7273 5.7768 47.3118 7.4527L29.5775 28.428C26.7457 31.7772 22.1572 31.7758 19.3268 28.425L1.59932 7.43725C0.183689 5.76135 0.183689 3.04387 1.59932 1.36797C3.015 -0.308352 5.3102 -0.308352 6.72587 1.36797L21.8987 19.3312C23.3146 21.0071 25.6096 21.0071 27.0252 19.3312L42.1853 1.38342C43.6009 -0.292473 45.8962 -0.292473 47.3118 1.38342Z"
-              fill="#030318"
+              fill="#fff"
             />
           </svg>
         </a>
@@ -150,10 +150,10 @@ export const SecondPage = () => {
           <h2 className="text-[40px] w-full" data-aos="zoom-in">
             Սիրելի ընկերներ
           </h2>
-          <h5 className="text-[24px] font-[500]" data-aos="zoom-in">
+          <h5 className="text-[16px] font-[500]" data-aos="zoom-in">
             Սիրով հրավիրում ենք Ձեզ մասնակցելու Յուրայի 20-ամյակի տոնական
             երեկոյին։
-            <b className="text-[30px]" style={{ letterSpacing: "3px" }}>
+            <b className="text-[17px]" style={{ letterSpacing: "3px" }}>
               <br />
               Միջոցառումը անակնկալ է <br /> Խնդրում ենք գաղտնի պահել հոբելյարից։{" "}
               <br />
@@ -185,10 +185,10 @@ export const SecondPage = () => {
               padding: "10px",
               margin: "15px 0",
               border: "none",
-              borderBottom: "2px solid #030318",
+              borderBottom: "2px solid #fff",
               background: "transparent",
               textAlign: "center",
-              fontSize: "25px",
+              fontSize: "18px",
               outline: "none",
               width: "100%",
               maxWidth: "300px",
@@ -206,10 +206,10 @@ export const SecondPage = () => {
                 padding: "10px",
                 margin: "15px 0",
                 border: "none",
-                borderBottom: "2px solid #030318",
+                borderBottom: "2px solid #fff",
                 background: "transparent",
                 textAlign: "center",
-                fontSize: "25px",
+                fontSize: "18px",
                 outline: "none",
                 width: "100%",
                 maxWidth: "300px",

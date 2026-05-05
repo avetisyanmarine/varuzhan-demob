@@ -57,7 +57,7 @@ export const MusicPagePart = styled.div`
     color: #fff;
     padding: 10px 12px;
     border-radius: 8px;
-    font-size: 12px;
+    font-size: 10px;
     font-weight: 500;
     letter-spacing: 0.3px;
     box-shadow: 0 8px 24px rgba(3, 3, 24, 0.2);

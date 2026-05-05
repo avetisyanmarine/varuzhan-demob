@@ -13,7 +13,7 @@ const GlobalStyle = createGlobalStyle`
   body {
     font-family: 'ArmCoronetU';
     letter-spacing: 1px;
-    background: #03031842;
+    background: #040b2e;
     color: #030318;
     color: var(--black);
     scroll-behavior: smooth;
@@ -25,20 +25,20 @@ const GlobalStyle = createGlobalStyle`
   }
   @font-face {
     font-family: 'ArmCoronetU';
-    src: url("/font/ArmCoronetU.ttf");
+    src: url("/font/ArmenianDecorativeU-Italic.ttf");
     font-display: swap;
   }
   h4 {
-    font-size: 36px;
+    font-size: 28px;
     font-weight: 100;
   }
   h1 {
-    font-size: 80px;
+    font-size: 64px;
     margin-top: 25px;
     /* text-shadow: 1px 6px 5px rgba(0,0,0,0.5);    */
   }
   h2 {
-    font-size: 40px;
+    font-size: 25px;
   }
 `;
 const Container = styled.div`

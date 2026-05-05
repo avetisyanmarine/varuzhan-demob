@@ -32,7 +32,7 @@ const ThirdPagePartCalendar = styled(Flexible)`
     font-weight: 500;
     line-height: 35px;
     justify-content: center;
-    font-size: 32px;
+    font-size: 24px;
     flex: 1 0 calc(100% / 7 - 8px);
   }
   .special {
@@ -48,7 +48,7 @@ const ThirdPagePartCalendar = styled(Flexible)`
       position: absolute;
       top: 50%;
       left: 50%;
-      transform: translate(-44%, -26%);
+      transform: translate(-50%, -50%);
       background-image: url("/heart.png");
       background-size: cover;
     }

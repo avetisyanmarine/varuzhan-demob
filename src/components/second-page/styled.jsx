@@ -14,7 +14,7 @@ color: #030318;
     display: block;
   }
   svg {
-    margin: 0 auto 45px auto;
+    margin: 30px auto 45px auto;
   }
 `;
 const SecondPagePartContext = styled.div`
@@ -36,7 +36,8 @@ const SecondPagePartContext = styled.div`
     margin: 20px 0;
   }
   h3 {
-    line-height: 70px;
+    line-height: 48px;
+    margin-bottom: 30px;
   }
   @keyframes moveUpDown {
     0%, 
@@ -53,13 +54,13 @@ const GridDiv = styled(Flexible)`
   div {
     flex-direction: column;
     text-align: center;
-    padding: 0 20px 16px 20px;
+    padding: 16px;
     font-weight: 500;
 
     p {
       font-weight: 500;
-      font-size: 22px;
-      line-height: 12px;
+      font-size: 16px;
+      line-height: 20px;
     }
     /* border-right: 1px solid black; */
   .uniqueBorder {
@@ -87,12 +88,13 @@ const RSVPSection = styled.div`
   text-align: center;
   margin: 0 0 40px 0;
   display: flex;
+  color: #fff;
   flex-direction: column;
   align-items: center;
   gap: 20px;
 
   h2 {
-    font-size: 50px;
+    font-size: 40px;
     margin-top: 50px;
     font-family: englishFont;
   }
@@ -109,29 +111,29 @@ const RSVPButtons = styled.div`
 
 const RSVPButton = styled.button`
   min-width: 120px;
-  padding: 0 28px 17px 14px;
+  padding: 14px;
   border-radius: 100px;
-  border: 2px solid #030318;
-  background: ${({ $active }) => ($active ? "#030318" : "transparent")};
-  color: ${({ $active }) => ($active ? "#fff" : "#030318")};
-  font-size: 30px;
+  border: 2px solid #fff;
+  background: ${({ $active }) => ($active ? "#ffffff76" : "transparent")};
+  color: ${({ $active }) => ($active ? "#fff" : "#fff")};
+  font-size: 16px;
   cursor: pointer;
   transition: all 0.2s ease;
 
   &:hover {
-    background: #030318;
+    background: #ffffff76;
     color: #fff;
   }
 `;
 
 const SendButton = styled.button`
   min-width: 180px;
-  padding: 0 28px 17px 14px;
+  padding: 14px;
   border-radius: 100px;
   border: none;
-  background: #030318;
+  background: #ffffff76;
   color: #fff;
-  font-size: 30px;
+  font-size: 16px;
   cursor: pointer;
   transition: opacity 0.2s ease;
 
@@ -142,15 +144,15 @@ const SendButton = styled.button`
 `;
 
 const RSVPMessage = styled.p`
-  color: #030318;
-  font-size: 22px;
+  color: #fff;
+  font-size: 18px;
   font-weight: 500;
   margin: 0;
 `;
 
 const RSVPLabel = styled.p`
-  color: #0e1111;
-  font-size: 29px;
+  color: #fff;
+  font-size: 18px;
   font-weight: 400;
   max-width: 480px;
   margin: 0;

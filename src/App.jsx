@@ -3,6 +3,7 @@ import { FirstPage } from "./components/first-page"
 import { ForthPage } from "./components/forth-page"
 import { LastFooterPage } from "./components/last-footer-page"
 import { SecondPage } from "./components/second-page"
+import { MusicPage } from "./components/music-page"
 import { ThirdPage } from "./components/third-page"
 import AOS from 'aos';
 import 'aos/dist/aos.css';
@@ -16,6 +17,7 @@ function App() {
 
   return (
     <>
+      <MusicPage />
       <FirstPage />
       <SecondPage />
       <ForthPage />

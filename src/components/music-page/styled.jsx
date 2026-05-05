@@ -1,34 +1,80 @@
 import styled from "styled-components";
 import { Flexible } from "../../GlobalStyle";
 
-export const MusicPagePart = styled(Flexible)`
-    position: fixed;
-    z-index: 10;
-    right: 0;
-    top: 65vh;
-    width: 183px;
-    height: 60px;
-    background: #3d3a3a;
-    opacity: .8;
-    border-radius: 15px;
-    color: aliceblue;
-    gap: 10px;
-    font-family: 'Segoe Script', cursive;
-    div {
-        text-align: center;
-        h4, p {
-            font-weight: 100;
-        }
-        &:nth-child(2) {
-            display: flex;
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            border: 2px solid aliceblue;
-            background: #2e2c2c;
-        }
-        p {
-            font-size: 13px;
-        }
+const tipSlideIn = `
+  @keyframes tipSlideIn {
+    from {
+      opacity: 0;
+      transform: translateY(-50%) translateX(10px);
     }
-`
+    to {
+      opacity: 1;
+      transform: translateY(-50%) translateX(0);
+    }
+  }
+`;
+
+const tipFadeOut = `
+  @keyframes tipFadeOut {
+    from {
+      opacity: 1;
+      transform: translateY(-50%) translateX(0);
+    }
+    to {
+      opacity: 0;
+      transform: translateY(-50%) translateX(10px);
+    }
+  }
+`;
+
+export const MusicPagePart = styled.div`
+  ${tipSlideIn}
+  ${tipFadeOut}
+  position: fixed;
+  z-index: 40;
+  right: 20px;
+  bottom: 4.5vh;
+  width: 60px;
+  height: 60px;
+  background: #030318;
+  opacity: 0.95;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: opacity 200ms ease;
+
+  &:hover {
+    opacity: 1;
+  }
+
+  .tip {
+    position: absolute;
+    right: calc(100% + 14px);
+    top: 50%;
+    background: rgba(3, 3, 24, 0.95);
+    color: #fff;
+    padding: 10px 12px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+    box-shadow: 0 8px 24px rgba(3, 3, 24, 0.2);
+    backdrop-filter: blur(8px);
+    white-space: nowrap;
+    animation: tipSlideIn 400ms cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    pointer-events: auto;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .tip.fade-out {
+    animation: tipFadeOut 350ms ease forwards;
+  }
+
+  img {
+    width: 20px;
+    pointer-events: none;
+  }
+`;

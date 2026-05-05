@@ -7,13 +7,14 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
   }
   :root {
-    --dark-color: #7F4E15;
-    --black: #0E1111;
+    --dark-color: #030118;
+    --black: #030318;
   }
   body {
     font-family: 'ArmCoronetU';
     letter-spacing: 1px;
-    background: #FAF2E5;
+    background: #03031842;
+    color: #030318;
     color: var(--black);
     scroll-behavior: smooth;
   }

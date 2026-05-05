@@ -4,7 +4,7 @@ import { Flexible } from "../../GlobalStyle";
 const ThirdPagePart = styled.div`
   width: 100%;
   overflow: visible;
-  div {   
+  div {
     width: 100%;
   }
   h2 {
@@ -38,19 +38,18 @@ const ThirdPagePartCalendar = styled(Flexible)`
   .special {
     position: relative;
     width: 100%;
-    color: #fff;
     z-index: 1;
     &::after {
       content: "";
-      width: 45px;
-      height: 45px;
+      width: 40px;
+      height: 40px;
       z-index: -1;
       display: block;
       position: absolute;
       top: 50%;
       left: 50%;
-      transform: translate(-41%, -25%);
-      background-image: url("/HeartSvg.svg");
+      transform: translate(-44%, -26%);
+      background-image: url("/heart.png");
       background-size: cover;
     }
   }

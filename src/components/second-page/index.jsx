@@ -12,7 +12,6 @@ import {
 import { Container, Flexible } from "../../GlobalStyle";
 import { useEffect, useState } from "react";
 import { ThirdPage } from "../third-page";
-import WhiteHeart from "../../assets/image/white-heart.png";
 import image1 from "/site-images/image1.jpg";
 import image3 from "/site-images/image3.jpg";
 
@@ -25,10 +24,11 @@ export const SecondPage = () => {
   });
   const [selectedResponse, setSelectedResponse] = useState(null);
   const [guestName, setGuestName] = useState("");
+  const [guestCount, setGuestCount] = useState("");
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  const date = new Date(2026, 4, 22, 0, 0, 0);
+  const date = new Date(2026, 5, 8, 0, 0, 0);
 
   const handleClick = (e) => {
     e.preventDefault();
@@ -72,10 +72,14 @@ export const SecondPage = () => {
       alert("Խնդրում ենք լրացնել Ձեր անունը և ընտրել տարբերակը:");
       return;
     }
+    if (selectedResponse === "yes" && !guestCount.trim()) {
+      alert("Խնդրում ենք նշել հյուրերի քանակը:");
+      return;
+    }
 
     setLoading(true);
     const SCRIPT_URL =
-      "https://script.google.com/macros/s/AKfycbyo-F08hKFG4I3ZA6iKwyGAI7s66dB2NZB392Ccv4RFc44PI52pZ1QLYSLM7IaVvkX8/exec"; // Փոխարինիր սա քո իրական URL-ով
+      "https://script.google.com/macros/s/AKfycbxX7Cq8z9_pcSFyaw42fiaX6G-_gRnM-Gs2Zq1cwzfLU5mT6brnwWtFN-VMZZ28ftet/exec"; // Փոխարինիր սա քո իրական URL-ով
 
     try {
       await fetch(SCRIPT_URL, {
@@ -84,12 +88,14 @@ export const SecondPage = () => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           name: guestName,
-          response: selectedResponse,
+          response: selectedResponse === "yes" ? "Այո" : "Ոչ",
+          guests: guestCount,
         }),
       });
 
       setSubmitted(true);
       setGuestName(""); // Մաքրել անունը ուղարկելուց հետո
+      setGuestCount(""); // Մաքրել հյուրերի քանակը
     } catch (error) {
       console.error("Error!", error);
       alert("Սխալ տեղի ունեցավ: Փորձեք նորից:");
@@ -99,7 +105,7 @@ export const SecondPage = () => {
   };
 
   return (
-    <SecondPagePart className="relative">
+    <SecondPagePart>
       <Container>
         <a
           onClick={handleClick}
@@ -108,18 +114,15 @@ export const SecondPage = () => {
           <svg width="49" height="31" viewBox="0 0 49 31" fill="none">
             <path
               d="M47.3118 1.38342C48.7273 3.05932 48.7273 5.7768 47.3118 7.4527L29.5775 28.428C26.7457 31.7772 22.1572 31.7758 19.3268 28.425L1.59932 7.43725C0.183689 5.76135 0.183689 3.04387 1.59932 1.36797C3.015 -0.308352 5.3102 -0.308352 6.72587 1.36797L21.8987 19.3312C23.3146 21.0071 25.6096 21.0071 27.0252 19.3312L42.1853 1.38342C43.6009 -0.292473 45.8962 -0.292473 47.3118 1.38342Z"
-              fill="#000000"
+              fill="#030318"
             />
           </svg>
         </a>
 
         <SecondPagePartContext>
           <div id="about" className="text-center">
-            <h3
-              className="text-[#7F4E15] text-[96px] font-[englishFont]"
-              data-aos="zoom-in"
-            >
-              35
+            <h3 className="text-[96px] font-[englishFont]" data-aos="zoom-in">
+              20
             </h3>
             <div>
               <h2 data-aos="zoom-in">Ծննդյան Հրավեր</h2>
@@ -143,28 +146,28 @@ export const SecondPage = () => {
               </GridDiv>
             </div>
           </div>
-          <img loading="lazy" src="/cake.png" alt="Cake" />
+          <img loading="lazy" src="/cake.png" width={160} alt="Cake" />
           <h2 className="text-[40px] w-full" data-aos="zoom-in">
             Սիրելի ընկերներ
           </h2>
           <h5 className="text-[24px] font-[500]" data-aos="zoom-in">
-            Սիրով հրավիրում եմ ձեզ միասին կիսելու իմ ծննդյան ուրախությունը։{" "}
-            <br /> Ձեր ներկայությամբ օրը կլինի ավելի գեղեցիկ ու հիշարժան։
+            Սիրով հրավիրում ենք Ձեզ մասնակցելու Յուրայի 20-ամյակի տոնական
+            երեկոյին։
+            <b className="text-[30px]" style={{ letterSpacing: "3px" }}>
+              <br />
+              Միջոցառումը անակնկալ է <br /> Խնդրում ենք գաղտնի պահել հոբելյարից։{" "}
+              <br />
+            </b>
+            Ձեր ներկայությունը կլցնի երեկոն ջերմությամբ և ուրախությամբ։ Սիրով
+            սպասում ենք Ձեզ միասին կիսելու այս գեղեցիկ պահը։
           </h5>
-          <hr className="border-[#7F4E15] w-1/3 my-4" />
+          <hr className="border-[#030318] w-1/3 my-4" />
           <h2 data-aos="zoom-in" className="w-full">
             Պահպանիր Օրը
           </h2>
           <ThirdPage />
-          <img src={image3} alt="" className="rounded-[180px]" />
+          <img src={image3} alt="" className="rounded-[100px]" />
         </SecondPagePartContext>
-
-        <img
-          src={WhiteHeart}
-          className="w-[140px]"
-          style={{ margin: "auto" }}
-          alt="White Heart"
-        />
 
         <RSVPSection>
           <h2 data-aos="fade-in" className="w-full">
@@ -182,7 +185,7 @@ export const SecondPage = () => {
               padding: "10px",
               margin: "15px 0",
               border: "none",
-              borderBottom: "2px solid #7F4E15",
+              borderBottom: "2px solid #030318",
               background: "transparent",
               textAlign: "center",
               fontSize: "25px",
@@ -191,6 +194,28 @@ export const SecondPage = () => {
               maxWidth: "300px",
             }}
           />
+
+          {/* Հյուրերի քանակի դաշտ */}
+          {selectedResponse === "yes" && (
+            <input
+              type="number"
+              placeholder="Հյուրերի քանակը"
+              value={guestCount}
+              onChange={(e) => setGuestCount(e.target.value)}
+              style={{
+                padding: "10px",
+                margin: "15px 0",
+                border: "none",
+                borderBottom: "2px solid #030318",
+                background: "transparent",
+                textAlign: "center",
+                fontSize: "25px",
+                outline: "none",
+                width: "100%",
+                maxWidth: "300px",
+              }}
+            />
+          )}
 
           <RSVPButtons>
             <RSVPButton
@@ -219,9 +244,7 @@ export const SecondPage = () => {
 
           {submitted && (
             <RSVPMessage>
-              {selectedResponse === "yes"
-                ? "Ձեր «Այո» պատասխանը հաջողությամբ գրանցվեց։ Սպասում ենք Ձեզ:"
-                : "Ձեր «Ոչ» պատասխանը հաջողությամբ գրանցվեց։"}
+              Ձեր պատասխանը հաջողությամբ գրանցվեց։ Սպասում ենք Ձեզ:
             </RSVPMessage>
           )}
         </RSVPSection>
@@ -229,7 +252,7 @@ export const SecondPage = () => {
         <img
           src={image1}
           alt="B-day"
-          className="rounded-[180px] my-10"
+          className="rounded-[100px] my-10"
           data-aos="fade-in"
         />
       </Container>

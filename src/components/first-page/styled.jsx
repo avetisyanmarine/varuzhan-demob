@@ -1,26 +1,22 @@
 import styled from "styled-components";
 
 const FirstPagePart = styled.div`
-  position: relative;
   width: 100vw;
-  height: 87dvh;
-  width: 100%;
+  height: 100dvh;
   transition: 0.5s;
-  overflow: hidden;
-  > img {
-    position: absolute;
-    height: 80vh;
-    top: 8vh;
-    left: 0;
+  /* overflow: hidden; */
+  color: #030318;
+  h4 {
+    font-size: 30px;
+    text-align: center;
+    margin-top: 20px;
   }
   .info {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 20px;
-    overflow: visible;
-    margin-top: 80px;
-    margin-left: 50px;
+    margin: 140px auto 0 auto;
     h3 {
       padding-bottom: 10px;
     }
@@ -31,27 +27,27 @@ const FirstPagePart = styled.div`
   }
 `;
 const FirstPagePartContext = styled.div`
-  margin-top: 30vh;
-  overflow: visible;
+  margin-top: 20vh;
   /* margin-right: 5vw; */
   width: 100%;
   h1 {
     font-family: englishFont;
     line-height: 70px;
     width: 100%;
+    color: #030318;
     /* position: relative; */
     /* top: 26px; */
   }
   .uniqueDiv {
     position: relative;
+    text-align: center;
     .bigNumber {
       position: absolute;
       width: 100%;
       top: 30px;
-      text-align: center;
       font-size: 340px;
-      color: #7f4e15;
-      margin-left: 40px;
+      color: #030318;
+      /* margin-left: 40px; */
       opacity: 0.25;
     }
   }

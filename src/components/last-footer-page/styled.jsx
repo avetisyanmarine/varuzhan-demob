@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const LastFooterPagePart = styled.div`
-    color: #7F4E15;;
+    color: #030318;;
     text-align: center;
 `
 const LastFooterPagePartContext = styled.div`

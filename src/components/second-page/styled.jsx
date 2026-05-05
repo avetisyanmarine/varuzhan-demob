@@ -6,7 +6,7 @@ const SecondPagePart = styled.div`
 justify-content: center;
 align-items: center;
 flex-direction: column; */
-
+color: #030318;
   div {
     text-align: center;
   }
@@ -27,7 +27,7 @@ const SecondPagePartContext = styled.div`
   width: 100%;
   padding: 40px 20px 25px 20px;
   background-color: #fff;
-  border-radius: 180px;
+  border-radius: 100px;
   img {
     object-fit: cover;
   }
@@ -93,6 +93,7 @@ const RSVPSection = styled.div`
 
   h2 {
     font-size: 50px;
+    margin-top: 50px;
     font-family: englishFont;
   }
 `;
@@ -109,16 +110,16 @@ const RSVPButtons = styled.div`
 const RSVPButton = styled.button`
   min-width: 120px;
   padding: 0 28px 17px 14px;
-  border-radius: 999px;
-  border: 2px solid #7f4e15;
-  background: ${({ $active }) => ($active ? "#7f4e15" : "transparent")};
-  color: ${({ $active }) => ($active ? "#fff" : "#7f4e15")};
+  border-radius: 100px;
+  border: 2px solid #030318;
+  background: ${({ $active }) => ($active ? "#030318" : "transparent")};
+  color: ${({ $active }) => ($active ? "#fff" : "#030318")};
   font-size: 30px;
   cursor: pointer;
   transition: all 0.2s ease;
 
   &:hover {
-    background: #7f4e15;
+    background: #030318;
     color: #fff;
   }
 `;
@@ -126,9 +127,9 @@ const RSVPButton = styled.button`
 const SendButton = styled.button`
   min-width: 180px;
   padding: 0 28px 17px 14px;
-  border-radius: 999px;
+  border-radius: 100px;
   border: none;
-  background: #7f4e15;
+  background: #030318;
   color: #fff;
   font-size: 30px;
   cursor: pointer;
@@ -141,7 +142,7 @@ const SendButton = styled.button`
 `;
 
 const RSVPMessage = styled.p`
-  color: #7f4e15;
+  color: #030318;
   font-size: 22px;
   font-weight: 500;
   margin: 0;

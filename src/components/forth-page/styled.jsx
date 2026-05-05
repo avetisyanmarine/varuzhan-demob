@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 const ForthPagePart = styled.div`
   margin-top: 10px;
+  color: #030318;
   text-align: center;
   .white-block {
     padding: 40px 20px 10px 20px;

@@ -4,7 +4,8 @@ const FirstPagePart = styled.div`
   width: 100vw;
   height: 100dvh;
   transition: 0.5s;
-  padding-top: 50px;
+  padding-top: 30px;
+  filter: opacity(0.5);
   /* overflow: hidden; */
   background: url("/mainPhoto.jpg") no-repeat center center/cover;
   color: #030318;

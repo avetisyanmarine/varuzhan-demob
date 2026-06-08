@@ -25,7 +25,7 @@ const SecondPagePartContext = styled.div`
   flex-direction: column;
   gap: 24px;
   width: 100%;
-  padding: 40px 20px 25px 20px;
+  padding: 20px 25px;
   background-color: #fff;
   border-radius: 100px;
   img {

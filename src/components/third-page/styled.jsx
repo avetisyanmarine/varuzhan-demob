@@ -35,24 +35,26 @@ const ThirdPagePartCalendar = styled(Flexible)`
     font-size: 24px;
     flex: 1 0 calc(100% / 7 - 8px);
   }
-  .special {
-    position: relative;
-    width: 100%;
-    z-index: 1;
-    &::after {
-      content: "";
-      width: 40px;
-      height: 40px;
-      z-index: -1;
-      display: block;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background-image: url("/heart.png");
-      background-size: cover;
-    }
+.special {
+  position: relative;
+  width: 100%;
+  z-index: 1;
+  color: #fff;
+  &::after {
+    content: "";
+    width: 40px;
+    height: 40px;
+    z-index: -1;
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* Այստեղ փոփոխված մասերը */
+    background-color: #052c17; 
+    border-radius: 50%;
   }
+}
 `;
 
 export { ThirdPagePart, PhotoDiv, ThirdPagePartContext, ThirdPagePartCalendar };

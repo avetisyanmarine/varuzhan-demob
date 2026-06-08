@@ -13,7 +13,7 @@ const GlobalStyle = createGlobalStyle`
   body {
     font-family: 'ArmCoronetU';
     letter-spacing: 1px;
-    background: #040b2e;
+    background: #052c17;
     color: #030318;
     color: var(--black);
     scroll-behavior: smooth;

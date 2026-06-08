@@ -10,12 +10,12 @@ export const ForthPage = () => {
             Ռեստորան
           </h2>
           <h3 data-aos="fade-in" className="text-[24px] text-[#030318]">
-            Adana Aqua սրահ
+            New Continental Complex
           </h3>
-          <h1 data-aos="fade-in">17:30</h1>
+          <h1 data-aos="fade-in">19:00</h1>
           <div className="line h-[110px] bg-[var(--black)]"></div>
             <img src={Restoran} alt="Restoran" className="rounded-[100px]" />
-          <a href="https://maps.app.goo.gl/Yh7G4J7LDG7XxtXJ8" className="text-[#030318] text-[18px] underline">
+          <a href="https://maps.app.goo.gl/c6UsjQvsYrCzLTST7" className="text-[#030318] text-[18px] underline">
             Քարտեզ
           </a>
         </div>

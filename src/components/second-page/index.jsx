@@ -14,6 +14,8 @@ import { useEffect, useState } from "react";
 import { ThirdPage } from "../third-page";
 import image1 from "/site-images/image1.jpg";
 import image3 from "/site-images/image3.jpg";
+import number from "../../assets/image/number.png";
+import lant from "../../assets/image/lant.png";
 
 export const SecondPage = () => {
   const [timeLeft, setTimeLeft] = useState({
@@ -28,7 +30,7 @@ export const SecondPage = () => {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  const date = new Date(2026, 5, 8, 0, 0, 0);
+  const date = new Date(2026, 5, 26, 0, 0, 0);
 
   const handleClick = (e) => {
     e.preventDefault();
@@ -79,7 +81,7 @@ export const SecondPage = () => {
 
     setLoading(true);
     const SCRIPT_URL =
-      "https://script.google.com/macros/s/AKfycbxX7Cq8z9_pcSFyaw42fiaX6G-_gRnM-Gs2Zq1cwzfLU5mT6brnwWtFN-VMZZ28ftet/exec"; // Փոխարինիր սա քո իրական URL-ով
+      "https://script.google.com/macros/s/AKfycbxpkRQThiXQOCx_DWL83lHY3yWXbH-pWoyJp7Z0SJ_JsfAd3YORHP61UAhL_IbK3-3ftg/exec"; // Փոխարինիր սա քո իրական URL-ով
 
     try {
       await fetch(SCRIPT_URL, {
@@ -121,11 +123,18 @@ export const SecondPage = () => {
 
         <SecondPagePartContext>
           <div id="about" className="text-center">
-            <h3 className="text-[96px] font-[englishFont]" data-aos="zoom-in">
+            {/* <h3 className="text-[96px] font-[englishFont]" data-aos="zoom-in">
               20
-            </h3>
+            </h3> */}
+            <img
+              src={number}
+              alt="26"
+              className="w-[150px]"
+              style={{ margin: "0 auto" }}
+              data-aos="zoom-in"
+            />
             <div>
-              <h2 data-aos="zoom-in">Ծննդյան Հրավեր</h2>
+              <h2 data-aos="zoom-in">Տունդարձի Հրավեր</h2>{" "}
               <GridDiv data-aos="fade-in">
                 <Flexible>
                   <h2>{formatNumber(timeLeft.days)}</h2>
@@ -146,22 +155,39 @@ export const SecondPage = () => {
               </GridDiv>
             </div>
           </div>
-          <img loading="lazy" src="/cake.png" width={160} alt="Cake" />
-          <h2 className="text-[40px] w-full" data-aos="zoom-in">
-            Սիրելի ընկերներ
-          </h2>
+          <div className="relative flex flex-col items-center justify-center">
+            {/* Նկարը */}
+            <img
+              loading="lazy"
+              src={lant}
+              alt="lant"
+              className="w-full h-auto" // Ավելացրեք չափսեր, եթե հարկավոր է
+            />
+
+            {/* Տեքստը նկարի վրա */}
+            <h2
+              className="absolute top-5 text-[#fff] text-center font-bold"
+              style={{
+                fontSize: "22px",
+                textShadow: "1px 5px 2px rgba(0, 0, 0, 0.948)",
+              }}
+              data-aos="zoom-in"
+            >
+              Սիրելի հյուրեր
+            </h2>
+          </div>
           <h5 className="text-[16px] font-[500]" data-aos="zoom-in">
-            Սիրով հրավիրում ենք Ձեզ մասնակցելու Յուրայի 20-ամյակի տոնական
-            երեկոյին։
+            Սիրով հրավիրում ենք Ձեզ մասնակցելու մեր զինվոր Վարուժանի զորացրման
+            տոնական երեկոյին։
             <b className="text-[17px]" style={{ letterSpacing: "3px" }}>
               <br />
-              Միջոցառումը անակնկալ է <br /> Խնդրում ենք գաղտնի պահել հոբելյարից։{" "}
+              Միասին դիմավորենք մեր հերոսին <br />և նշենք նրա բարի վերադարձը։{" "}
               <br />
             </b>
             Ձեր ներկայությունը կլցնի երեկոն ջերմությամբ և ուրախությամբ։ Սիրով
-            սպասում ենք Ձեզ միասին կիսելու այս գեղեցիկ պահը։
+            սպասում ենք Ձեզ միասին կիսելու այս հիշարժան պահը։
           </h5>
-          <hr className="border-[#030318] w-1/3 my-4" />
+          <hr className="w-1/3 my-4" />
           <h2 data-aos="zoom-in" className="w-full">
             Պահպանիր Օրը
           </h2>

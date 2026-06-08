@@ -45,7 +45,7 @@ const WeddingInvitationEnvelope = ({ onOpen }) => {
         animate={topControls}
         initial={{ y: 0 }}
         style={{
-          backgroundColor: "#030318",
+          backgroundColor: "#031e14",
           clipPath: "polygon(-120% 0%, 215% 0%, 50% 100%)",
           borderBottom: "1px solid rgba(255,255,255,0.1)",
         }}
@@ -56,7 +56,7 @@ const WeddingInvitationEnvelope = ({ onOpen }) => {
         animate={bottomControls}
         initial={{ y: 0 }}
         style={{
-          backgroundColor: "#040b2e", // Հիմնական մուգ գույնը
+          backgroundColor: "#052c17", // Հիմնական մուգ գույնը
           clipPath: "polygon(-120% 0%, 205% 0%, 50% 100%)",
           rotate: "180deg",
         }}

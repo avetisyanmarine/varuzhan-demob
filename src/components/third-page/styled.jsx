@@ -9,7 +9,8 @@ const ThirdPagePart = styled.div`
   }
   h2 {
     width: fit-content;
-    margin: auto;
+    margin: -10px auto 10px auto;
+    
   }
 `;
 const ThirdPagePartContext = styled.div`

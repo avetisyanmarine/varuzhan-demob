@@ -4,7 +4,7 @@ import { FirstPagePart, FirstPagePartContext } from "./styled";
 export const FirstPage = () => {
   return (
     <FirstPagePart>
-      <h4>Վարուժանի <br /> Զորացրման Քեֆը</h4>
+      <h4>Վարուժանի <br /> Զորացրման <br /> Արարողությունը</h4>
       <Container className="none">
        
         <div className="info">

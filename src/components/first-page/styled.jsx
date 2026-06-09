@@ -4,13 +4,13 @@ const FirstPagePart = styled.div`
   width: 100vw;
   height: 100dvh;
   transition: 0.5s;
-  padding-top: 30px;
+  padding-top: 20px;
   filter: opacity(0.5);
   /* overflow: hidden; */
   background: url("/mainPhoto.jpg") no-repeat center center/cover;
   color: #030318;
   h4 {
-    font-size: 16px;
+    font-size: 20px;
     text-align: center;
   }
   .info {
@@ -18,6 +18,7 @@ const FirstPagePart = styled.div`
     justify-content: center;
     align-items: center;
     gap: 20px;
+    margin-top: 65vh;
     h3 {
       padding: 10px 0;
     }

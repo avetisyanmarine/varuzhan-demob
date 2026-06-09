@@ -9,14 +9,14 @@ import "aos/dist/aos.css";
 import { BackToTop } from "./components/top-button";
 import { MusicPage } from "./components/music-page";
 
-function App() {
+function App({ isOpened }) {
   useEffect(() => {
     AOS.init({ duration: 2000, once: true, easing: "ease-in-out" });
   }, []);
 
   return (
     <>
-      <MusicPage />
+      {isOpened && <MusicPage />}
       <FirstPage />
       <SecondPage />
       <ForthPage />

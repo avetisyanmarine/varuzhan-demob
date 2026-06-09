@@ -33,7 +33,7 @@ export const MusicPagePart = styled.div`
   position: fixed;
   z-index: 40;
   right: 20px;
-  bottom: 4.5vh;
+  top: 4.5vh;
   width: 60px;
   height: 60px;
   background: #030318;
